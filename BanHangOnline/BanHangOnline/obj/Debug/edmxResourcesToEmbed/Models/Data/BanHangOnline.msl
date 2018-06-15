@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BANHANGONLINEModelStoreContainer" CdmEntityContainer="BANHANGONLINEEntities5">
+    <EntitySetMapping Name="DONDHs">
+      <EntityTypeMapping TypeName="BANHANGONLINEModel.DONDH">
+        <MappingFragment StoreEntitySet="DONDH">
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="MASP" ColumnName="MASP" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="SLD" ColumnName="SLD" />
+          <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+          <ScalarProperty Name="NGAYDH" ColumnName="NGAYDH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="BANHANGONLINEModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="NGAYDK" ColumnName="NGAYDK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAISPs">
+      <EntityTypeMapping TypeName="BANHANGONLINEModel.LOAISP">
+        <MappingFragment StoreEntitySet="LOAISP">
+          <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
+          <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="BANHANGONLINEModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="NGAYLAM" ColumnName="NGAYLAM" />
+          <ScalarProperty Name="LUONG" ColumnName="LUONG" />
+          <ScalarProperty Name="USERNAMES" ColumnName="USERNAMES" />
+          <ScalarProperty Name="PASSWORDS" ColumnName="PASSWORDS" />
+          <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHASANXUATs">
+      <EntityTypeMapping TypeName="BANHANGONLINEModel.NHASANXUAT">
+        <MappingFragment StoreEntitySet="NHASANXUAT">
+          <ScalarProperty Name="MASX" ColumnName="MASX" />
+          <ScalarProperty Name="TENSX" ColumnName="TENSX" />
+          <ScalarProperty Name="QUOCGIA" ColumnName="QUOCGIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUXUATs">
+      <EntityTypeMapping TypeName="BANHANGONLINEModel.PHIEUXUAT">
+        <MappingFragment StoreEntitySet="PHIEUXUAT">
+          <ScalarProperty Name="MAPX" ColumnName="MAPX" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="MASP" ColumnName="MASP" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="SLX" ColumnName="SLX" />
+          <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+          <ScalarProperty Name="NGAYXUAT" ColumnName="NGAYXUAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SANPHAMs">
+      <EntityTypeMapping TypeName="BANHANGONLINEModel.SANPHAM">
+        <MappingFragment StoreEntitySet="SANPHAM">
+          <ScalarProperty Name="MASP" ColumnName="MASP" />
+          <ScalarProperty Name="TENSP" ColumnName="TENSP" />
+          <ScalarProperty Name="GIA" ColumnName="GIA" />
+          <ScalarProperty Name="CHITIET" ColumnName="CHITIET" />
+          <ScalarProperty Name="IMAGES" ColumnName="IMAGES" />
+          <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+          <ScalarProperty Name="GIAMGIA" ColumnName="GIAMGIA" />
+          <ScalarProperty Name="SL" ColumnName="SL" />
+          <ScalarProperty Name="MASX" ColumnName="MASX" />
+          <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_SuaDonDathang" FunctionName="BANHANGONLINEModel.Store.sp_SuaDonDathang" />
+    <FunctionImportMapping FunctionImportName="sp_SuaKhachHang" FunctionName="BANHANGONLINEModel.Store.sp_SuaKhachHang" />
+    <FunctionImportMapping FunctionImportName="sp_SuaLoaiSanPham" FunctionName="BANHANGONLINEModel.Store.sp_SuaLoaiSanPham" />
+    <FunctionImportMapping FunctionImportName="sp_SuaNhanVien" FunctionName="BANHANGONLINEModel.Store.sp_SuaNhanVien" />
+    <FunctionImportMapping FunctionImportName="sp_SuaNhaSanXuat" FunctionName="BANHANGONLINEModel.Store.sp_SuaNhaSanXuat" />
+    <FunctionImportMapping FunctionImportName="sp_SuaPhieuXuat" FunctionName="BANHANGONLINEModel.Store.sp_SuaPhieuXuat" />
+    <FunctionImportMapping FunctionImportName="sp_SuaSanPham" FunctionName="BANHANGONLINEModel.Store.sp_SuaSanPham" />
+    <FunctionImportMapping FunctionImportName="sp_ThemDonDatHang" FunctionName="BANHANGONLINEModel.Store.sp_ThemDonDatHang" />
+    <FunctionImportMapping FunctionImportName="sp_ThemKhachHang" FunctionName="BANHANGONLINEModel.Store.sp_ThemKhachHang" />
+    <FunctionImportMapping FunctionImportName="sp_ThemLoaiSanPham" FunctionName="BANHANGONLINEModel.Store.sp_ThemLoaiSanPham" />
+    <FunctionImportMapping FunctionImportName="sp_ThemNhanVien" FunctionName="BANHANGONLINEModel.Store.sp_ThemNhanVien" />
+    <FunctionImportMapping FunctionImportName="sp_ThemNhaSanXuat" FunctionName="BANHANGONLINEModel.Store.sp_ThemNhaSanXuat" />
+    <FunctionImportMapping FunctionImportName="sp_ThemPhieuXuat" FunctionName="BANHANGONLINEModel.Store.sp_ThemPhieuXuat" />
+    <FunctionImportMapping FunctionImportName="sp_ThemSanPham" FunctionName="BANHANGONLINEModel.Store.sp_ThemSanPham" />
+  </EntityContainerMapping>
+</Mapping>

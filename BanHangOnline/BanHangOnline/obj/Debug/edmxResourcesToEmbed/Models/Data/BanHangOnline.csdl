@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BANHANGONLINEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DONDH">
+    <Key>
+      <PropertyRef Name="MADH" />
+    </Key>
+    <Property Name="MADH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MASP" Type="Int32" />
+    <Property Name="MAKH" Type="Int32" />
+    <Property Name="MANV" Type="Int32" />
+    <Property Name="SLD" Type="Int32" />
+    <Property Name="THANHTIEN" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="NGAYDH" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.FRK_DONDH_KHACHHANG" FromRole="DONDH" ToRole="KHACHHANG" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.FRK_DONDH_NHANVIEN" FromRole="DONDH" ToRole="NHANVIEN" />
+    <NavigationProperty Name="SANPHAM" Relationship="Self.FRK_DONDH_SANPHAM" FromRole="DONDH" ToRole="SANPHAM" />
+    <NavigationProperty Name="PHIEUXUATs" Relationship="Self.FRK_PHIEUXUAT_DONDH" FromRole="DONDH" ToRole="PHIEUXUAT" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="MAKH" />
+    </Key>
+    <Property Name="MAKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HOTEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
+    <Property Name="GIOITINH" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="DIENTHOAI" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="MAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYDK" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="DONDHs" Relationship="Self.FRK_DONDH_KHACHHANG" FromRole="KHACHHANG" ToRole="DONDH" />
+    <NavigationProperty Name="PHIEUXUATs" Relationship="Self.FRK_PHIEUXUAT_KHACHHANG" FromRole="KHACHHANG" ToRole="PHIEUXUAT" />
+  </EntityType>
+  <EntityType Name="LOAISP">
+    <Key>
+      <PropertyRef Name="MALOAI" />
+    </Key>
+    <Property Name="MALOAI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENLOAI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DVT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SANPHAMs" Relationship="Self.FRK_SANPHAM_LOAISP" FromRole="LOAISP" ToRole="SANPHAM" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="MANV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HOTEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
+    <Property Name="GIOITINH" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="DIENTHOAI" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="MAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYLAM" Type="DateTime" Precision="0" />
+    <Property Name="LUONG" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="USERNAMES" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PASSWORDS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TRANGTHAI" Type="Int32" />
+    <NavigationProperty Name="DONDHs" Relationship="Self.FRK_DONDH_NHANVIEN" FromRole="NHANVIEN" ToRole="DONDH" />
+    <NavigationProperty Name="PHIEUXUATs" Relationship="Self.FRK_PHIEUXUAT_NHANVIEN" FromRole="NHANVIEN" ToRole="PHIEUXUAT" />
+  </EntityType>
+  <EntityType Name="NHASANXUAT">
+    <Key>
+      <PropertyRef Name="MASX" />
+    </Key>
+    <Property Name="MASX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENSX" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="QUOCGIA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SANPHAMs" Relationship="Self.FRK_SANPHAM_NHASANXUAT" FromRole="NHASANXUAT" ToRole="SANPHAM" />
+  </EntityType>
+  <EntityType Name="PHIEUXUAT">
+    <Key>
+      <PropertyRef Name="MAPX" />
+    </Key>
+    <Property Name="MAPX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MAKH" Type="Int32" />
+    <Property Name="MASP" Type="Int32" />
+    <Property Name="MANV" Type="Int32" />
+    <Property Name="MADH" Type="Int32" />
+    <Property Name="SLX" Type="Int32" />
+    <Property Name="THANHTIEN" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="NGAYXUAT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DONDH" Relationship="Self.FRK_PHIEUXUAT_DONDH" FromRole="PHIEUXUAT" ToRole="DONDH" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.FRK_PHIEUXUAT_KHACHHANG" FromRole="PHIEUXUAT" ToRole="KHACHHANG" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.FRK_PHIEUXUAT_NHANVIEN" FromRole="PHIEUXUAT" ToRole="NHANVIEN" />
+    <NavigationProperty Name="SANPHAM" Relationship="Self.FRK_PHIEUXUAT_SANPHAM" FromRole="PHIEUXUAT" ToRole="SANPHAM" />
+  </EntityType>
+  <EntityType Name="SANPHAM">
+    <Key>
+      <PropertyRef Name="MASP" />
+    </Key>
+    <Property Name="MASP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENSP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="GIA" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CHITIET" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IMAGES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TRANGTHAI" Type="Int32" />
+    <Property Name="GIAMGIA" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SL" Type="Int32" />
+    <Property Name="MASX" Type="Int32" />
+    <Property Name="MALOAI" Type="Int32" />
+    <NavigationProperty Name="DONDHs" Relationship="Self.FRK_DONDH_SANPHAM" FromRole="SANPHAM" ToRole="DONDH" />
+    <NavigationProperty Name="LOAISP" Relationship="Self.FRK_SANPHAM_LOAISP" FromRole="SANPHAM" ToRole="LOAISP" />
+    <NavigationProperty Name="NHASANXUAT" Relationship="Self.FRK_SANPHAM_NHASANXUAT" FromRole="SANPHAM" ToRole="NHASANXUAT" />
+    <NavigationProperty Name="PHIEUXUATs" Relationship="Self.FRK_PHIEUXUAT_SANPHAM" FromRole="SANPHAM" ToRole="PHIEUXUAT" />
+  </EntityType>
+  <Association Name="FRK_DONDH_KHACHHANG">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="DONDH" Type="Self.DONDH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MAKH" />
+      </Principal>
+      <Dependent Role="DONDH">
+        <PropertyRef Name="MAKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FRK_DONDH_NHANVIEN">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+    <End Role="DONDH" Type="Self.DONDH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="DONDH">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FRK_DONDH_SANPHAM">
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="0..1" />
+    <End Role="DONDH" Type="Self.DONDH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SANPHAM">
+        <PropertyRef Name="MASP" />
+      </Principal>
+      <Dependent Role="DONDH">
+        <PropertyRef Name="MASP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FRK_PHIEUXUAT_DONDH">
+    <End Role="DONDH" Type="Self.DONDH" Multiplicity="0..1" />
+    <End Role="PHIEUXUAT" Type="Self.PHIEUXUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONDH">
+        <PropertyRef Name="MADH" />
+      </Principal>
+      <Dependent Role="PHIEUXUAT">
+        <PropertyRef Name="MADH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FRK_PHIEUXUAT_KHACHHANG">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="PHIEUXUAT" Type="Self.PHIEUXUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MAKH" />
+      </Principal>
+      <Dependent Role="PHIEUXUAT">
+        <PropertyRef Name="MAKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FRK_SANPHAM_LOAISP">
+    <End Role="LOAISP" Type="Self.LOAISP" Multiplicity="0..1" />
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAISP">
+        <PropertyRef Name="MALOAI" />
+      </Principal>
+      <Dependent Role="SANPHAM">
+        <PropertyRef Name="MALOAI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FRK_PHIEUXUAT_NHANVIEN">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+    <End Role="PHIEUXUAT" Type="Self.PHIEUXUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="PHIEUXUAT">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FRK_SANPHAM_NHASANXUAT">
+    <End Role="NHASANXUAT" Type="Self.NHASANXUAT" Multiplicity="0..1" />
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHASANXUAT">
+        <PropertyRef Name="MASX" />
+      </Principal>
+      <Dependent Role="SANPHAM">
+        <PropertyRef Name="MASX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FRK_PHIEUXUAT_SANPHAM">
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="0..1" />
+    <End Role="PHIEUXUAT" Type="Self.PHIEUXUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SANPHAM">
+        <PropertyRef Name="MASP" />
+      </Principal>
+      <Dependent Role="PHIEUXUAT">
+        <PropertyRef Name="MASP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BANHANGONLINEEntities5" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DONDHs" EntityType="Self.DONDH" />
+    <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+    <EntitySet Name="LOAISPs" EntityType="Self.LOAISP" />
+    <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+    <EntitySet Name="NHASANXUATs" EntityType="Self.NHASANXUAT" />
+    <EntitySet Name="PHIEUXUATs" EntityType="Self.PHIEUXUAT" />
+    <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
+    <AssociationSet Name="FRK_DONDH_KHACHHANG" Association="Self.FRK_DONDH_KHACHHANG">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="DONDH" EntitySet="DONDHs" />
+    </AssociationSet>
+    <AssociationSet Name="FRK_DONDH_NHANVIEN" Association="Self.FRK_DONDH_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="DONDH" EntitySet="DONDHs" />
+    </AssociationSet>
+    <AssociationSet Name="FRK_DONDH_SANPHAM" Association="Self.FRK_DONDH_SANPHAM">
+      <End Role="SANPHAM" EntitySet="SANPHAMs" />
+      <End Role="DONDH" EntitySet="DONDHs" />
+    </AssociationSet>
+    <AssociationSet Name="FRK_PHIEUXUAT_DONDH" Association="Self.FRK_PHIEUXUAT_DONDH">
+      <End Role="DONDH" EntitySet="DONDHs" />
+      <End Role="PHIEUXUAT" EntitySet="PHIEUXUATs" />
+    </AssociationSet>
+    <AssociationSet Name="FRK_PHIEUXUAT_KHACHHANG" Association="Self.FRK_PHIEUXUAT_KHACHHANG">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="PHIEUXUAT" EntitySet="PHIEUXUATs" />
+    </AssociationSet>
+    <AssociationSet Name="FRK_SANPHAM_LOAISP" Association="Self.FRK_SANPHAM_LOAISP">
+      <End Role="LOAISP" EntitySet="LOAISPs" />
+      <End Role="SANPHAM" EntitySet="SANPHAMs" />
+    </AssociationSet>
+    <AssociationSet Name="FRK_PHIEUXUAT_NHANVIEN" Association="Self.FRK_PHIEUXUAT_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="PHIEUXUAT" EntitySet="PHIEUXUATs" />
+    </AssociationSet>
+    <AssociationSet Name="FRK_SANPHAM_NHASANXUAT" Association="Self.FRK_SANPHAM_NHASANXUAT">
+      <End Role="NHASANXUAT" EntitySet="NHASANXUATs" />
+      <End Role="SANPHAM" EntitySet="SANPHAMs" />
+    </AssociationSet>
+    <AssociationSet Name="FRK_PHIEUXUAT_SANPHAM" Association="Self.FRK_PHIEUXUAT_SANPHAM">
+      <End Role="SANPHAM" EntitySet="SANPHAMs" />
+      <End Role="PHIEUXUAT" EntitySet="PHIEUXUATs" />
+    </AssociationSet>
+    <FunctionImport Name="sp_SuaDonDathang">
+      <Parameter Name="MASP" Mode="In" Type="Int32" />
+      <Parameter Name="MAKH" Mode="In" Type="Int32" />
+      <Parameter Name="MANV" Mode="In" Type="Int32" />
+      <Parameter Name="SLD" Mode="In" Type="Int32" />
+      <Parameter Name="THANHTIEN" Mode="In" Type="Decimal" />
+      <Parameter Name="NGAYDH" Mode="In" Type="DateTime" />
+      <Parameter Name="MADH" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SuaKhachHang">
+      <Parameter Name="HOTEN" Mode="In" Type="String" />
+      <Parameter Name="NGAYSINH" Mode="In" Type="DateTime" />
+      <Parameter Name="GIOITINH" Mode="In" Type="String" />
+      <Parameter Name="DIENTHOAI" Mode="In" Type="String" />
+      <Parameter Name="MAIL" Mode="In" Type="String" />
+      <Parameter Name="DIACHI" Mode="In" Type="String" />
+      <Parameter Name="NGAYDK" Mode="In" Type="DateTime" />
+      <Parameter Name="MAKH" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SuaLoaiSanPham">
+      <Parameter Name="TENLOAI" Mode="In" Type="String" />
+      <Parameter Name="DVT" Mode="In" Type="String" />
+      <Parameter Name="MALOAI" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SuaNhanVien">
+      <Parameter Name="HOTEN" Mode="In" Type="String" />
+      <Parameter Name="NGAYSINH" Mode="In" Type="DateTime" />
+      <Parameter Name="GIOITINH" Mode="In" Type="String" />
+      <Parameter Name="DIENTHOAI" Mode="In" Type="String" />
+      <Parameter Name="MAIL" Mode="In" Type="String" />
+      <Parameter Name="DIACHI" Mode="In" Type="String" />
+      <Parameter Name="NGAYLAM" Mode="In" Type="DateTime" />
+      <Parameter Name="LUONG" Mode="In" Type="Decimal" />
+      <Parameter Name="USERNAMES" Mode="In" Type="String" />
+      <Parameter Name="PASSWORDS" Mode="In" Type="String" />
+      <Parameter Name="TRANGTHAI" Mode="In" Type="Int32" />
+      <Parameter Name="MANV" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SuaNhaSanXuat">
+      <Parameter Name="TENSX" Mode="In" Type="String" />
+      <Parameter Name="QUOCGIA" Mode="In" Type="String" />
+      <Parameter Name="MASX" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SuaPhieuXuat">
+      <Parameter Name="MASP" Mode="In" Type="Int32" />
+      <Parameter Name="MAKH" Mode="In" Type="Int32" />
+      <Parameter Name="MANV" Mode="In" Type="Int32" />
+      <Parameter Name="MADH" Mode="In" Type="Int32" />
+      <Parameter Name="SLX" Mode="In" Type="Int32" />
+      <Parameter Name="THANHTIEN" Mode="In" Type="Decimal" />
+      <Parameter Name="NGAYXUAT" Mode="In" Type="DateTime" />
+      <Parameter Name="MAPX" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SuaSanPham">
+      <Parameter Name="TENSP" Mode="In" Type="String" />
+      <Parameter Name="GIA" Mode="In" Type="Decimal" />
+      <Parameter Name="CHITIET" Mode="In" Type="String" />
+      <Parameter Name="IMAGES" Mode="In" Type="String" />
+      <Parameter Name="TRANGTHAI" Mode="In" Type="Int32" />
+      <Parameter Name="GIAMGIA" Mode="In" Type="Decimal" />
+      <Parameter Name="SL" Mode="In" Type="Int32" />
+      <Parameter Name="MALOAI" Mode="In" Type="Int32" />
+      <Parameter Name="MASP" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ThemDonDatHang">
+      <Parameter Name="MASP" Mode="In" Type="Int32" />
+      <Parameter Name="MAKH" Mode="In" Type="Int32" />
+      <Parameter Name="MANV" Mode="In" Type="Int32" />
+      <Parameter Name="SLD" Mode="In" Type="Int32" />
+      <Parameter Name="THANHTIEN" Mode="In" Type="Decimal" />
+      <Parameter Name="NGAYDH" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ThemKhachHang">
+      <Parameter Name="HOTEN" Mode="In" Type="String" />
+      <Parameter Name="NGAYSINH" Mode="In" Type="DateTime" />
+      <Parameter Name="GIOITINH" Mode="In" Type="String" />
+      <Parameter Name="DIENTHOAI" Mode="In" Type="String" />
+      <Parameter Name="MAIL" Mode="In" Type="String" />
+      <Parameter Name="DIACHI" Mode="In" Type="String" />
+      <Parameter Name="NGAYDK" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ThemLoaiSanPham">
+      <Parameter Name="TENLOAI" Mode="In" Type="String" />
+      <Parameter Name="DVT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ThemNhanVien">
+      <Parameter Name="HOTEN" Mode="In" Type="String" />
+      <Parameter Name="NGAYSINH" Mode="In" Type="DateTime" />
+      <Parameter Name="GIOITINH" Mode="In" Type="String" />
+      <Parameter Name="DIENTHOAI" Mode="In" Type="String" />
+      <Parameter Name="MAIL" Mode="In" Type="String" />
+      <Parameter Name="DIACHI" Mode="In" Type="String" />
+      <Parameter Name="NGAYLAM" Mode="In" Type="DateTime" />
+      <Parameter Name="LUONG" Mode="In" Type="Decimal" />
+      <Parameter Name="USERNAMES" Mode="In" Type="String" />
+      <Parameter Name="PASSWORDS" Mode="In" Type="String" />
+      <Parameter Name="TRANGTHAI" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ThemNhaSanXuat">
+      <Parameter Name="TENSX" Mode="In" Type="String" />
+      <Parameter Name="QUOCGIA" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ThemPhieuXuat">
+      <Parameter Name="MAKH" Mode="In" Type="Int32" />
+      <Parameter Name="MASP" Mode="In" Type="Int32" />
+      <Parameter Name="MANV" Mode="In" Type="Int32" />
+      <Parameter Name="MADH" Mode="In" Type="Int32" />
+      <Parameter Name="SLX" Mode="In" Type="Int32" />
+      <Parameter Name="THANHTIEN" Mode="In" Type="Decimal" />
+      <Parameter Name="NGAYXUAT" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ThemSanPham">
+      <Parameter Name="TENSP" Mode="In" Type="String" />
+      <Parameter Name="GIA" Mode="In" Type="Decimal" />
+      <Parameter Name="CHITIET" Mode="In" Type="String" />
+      <Parameter Name="IMAGES" Mode="In" Type="String" />
+      <Parameter Name="TRANGTHAI" Mode="In" Type="Int32" />
+      <Parameter Name="GIAMGIA" Mode="In" Type="Decimal" />
+      <Parameter Name="SL" Mode="In" Type="Int32" />
+      <Parameter Name="MASX" Mode="In" Type="Int32" />
+      <Parameter Name="MALOAI" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

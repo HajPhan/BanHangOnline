@@ -1,0 +1,94 @@
+﻿@model IEnumerable<BanHangOnline.Models.NhanVienViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HOTEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYSINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIOITINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIENTHOAI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIACHI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYLAM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LUONG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USERNAMES)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PASSWORDS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRANGTHAI)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HOTEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYSINH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIOITINH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIENTHOAI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIACHI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYLAM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LUONG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USERNAMES)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PASSWORDS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRANGTHAI)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MANV }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MANV }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MANV })
+        </td>
+    </tr>
+}
+
+</table>

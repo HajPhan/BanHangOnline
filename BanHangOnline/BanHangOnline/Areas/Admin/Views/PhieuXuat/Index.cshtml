@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BanHangOnline.Models.PhieuXuatViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MAKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MASP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MANV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MADH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SLX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.THANHTIEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYXUAT)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MAKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MASP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MANV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MADH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SLX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.THANHTIEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYXUAT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MAPX }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MAPX }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MAPX })
+        </td>
+    </tr>
+}
+
+</table>
