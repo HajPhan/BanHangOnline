@@ -81,5 +81,55 @@ namespace BanHangOnline.Areas.Admin.Controllers.mvc
             ModelState.AddModelError(string.Empty, "Server error. Please contact administractor");
             return View(phieuxuat);
         }
+
+
+        public ActionResult Edit(int id)
+        {
+            PhieuXuatViewModel phieuxuat = null;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:53017/api/");
+
+                // HTTP GET
+                var responseTask = client.GetAsync("phieuxuat?id=" + id.ToString());
+                responseTask.Wait();
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    var readTask = result.Content.ReadAsAsync<PhieuXuatViewModel>();
+                    readTask.Wait();
+
+                    phieuxuat = readTask.Result;
+                }
+            }
+
+            return View(phieuxuat);
+        }
+
+
+
+        [HttpPost]
+        public ActionResult Edit(PhieuXuatViewModel phieuxuat)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:53017/api/nhanvien");
+
+                //HTTP POST
+                var putTask = client.PutAsJsonAsync<PhieuXuatViewModel>("phieuxuat", phieuxuat);
+                putTask.Wait();
+
+                var result = putTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+
+            return View(phieuxuat);
+        }
+
     }
 }

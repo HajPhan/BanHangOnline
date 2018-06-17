@@ -32,6 +32,29 @@ namespace BanHangOnline.Controllers
             return Ok(nhasx);
         }
 
+        public IHttpActionResult GetNhaSanXuatById(int id)
+        {
+            NhaSanXuatViewModel nhasx = null;
+            using (var ctx = new BANHANGONLINEEntities5())
+            {
+                nhasx = ctx.NHASANXUATs.Where(s => s.MASX == id)
+                                       .Select(s => new NhaSanXuatViewModel()
+                                       {
+                                           MASX = s.MASX,
+                                           TENSX = s.TENSX,
+                                           QUOCGIA = s.QUOCGIA
+                                       }).FirstOrDefault<NhaSanXuatViewModel>();
+            }
+
+            if (nhasx == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(nhasx);
+
+        }
+
         public IHttpActionResult PostNewNhaSanXuat(NhaSanXuatViewModel nhasx)
         {
             if (!ModelState.IsValid)
@@ -47,6 +70,8 @@ namespace BanHangOnline.Controllers
             return Ok();
         }
 
+
+        // PUT
         public IHttpActionResult PutNhaSanXuat(NhaSanXuatViewModel nhasx)
         {
             if (!ModelState.IsValid)

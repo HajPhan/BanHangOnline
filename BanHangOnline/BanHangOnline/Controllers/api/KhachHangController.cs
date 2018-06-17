@@ -37,6 +37,38 @@ namespace BanHangOnline.Controllers
             return Ok(khachhang);
         }
 
+
+        public IHttpActionResult GetKhachHangById(int id)
+        {
+            KhachHangViewModel khachhang = null;
+
+            using (var ctx = new BANHANGONLINEEntities5())
+            {
+                khachhang = ctx.KHACHHANGs.Where(s => s.MAKH == id)
+                                          .Select(s => new KhachHangViewModel()
+                                          {
+                                              MAKH = s.MAKH,
+                                              HOTEN = s.HOTEN,
+                                              NGAYSINH = s.NGAYSINH,
+                                              GIOITINH = s.GIOITINH,
+                                              DIENTHOAI = s.DIENTHOAI,
+                                              MAIL = s.MAIL,
+                                              DIACHI = s.DIACHI,
+                                              NGAYDK = s.NGAYDK
+                                          }).FirstOrDefault<KhachHangViewModel>();
+            }
+
+            if (khachhang == null)
+            {
+                return NotFound();
+            }
+
+
+            return Ok(khachhang);
+
+        }
+
+
         // POST
         public IHttpActionResult PostNewKhachHang(KhachHangViewModel khachhang)
         {
@@ -51,6 +83,35 @@ namespace BanHangOnline.Controllers
             }
 
             return Ok();
+        }
+
+
+        // PUT
+        public IHttpActionResult PutKhachHang(KhachHangViewModel khachhang)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid data");
+            }
+            using (var ctx = new BANHANGONLINEEntities5())
+            {
+                var existingKhachHang = ctx.KHACHHANGs.Where(s => s.MAKH == khachhang.MAKH).FirstOrDefault<KHACHHANG>();
+
+                if (existingKhachHang != null)
+                {
+                    ctx.sp_SuaKhachHang(khachhang.HOTEN, khachhang.NGAYSINH, khachhang.GIOITINH, khachhang.DIENTHOAI, khachhang.MAIL, khachhang.DIACHI, khachhang.NGAYDK, khachhang.MAKH);
+                    ctx.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+
+
+
+            return Ok();
+
         }
     }
 }

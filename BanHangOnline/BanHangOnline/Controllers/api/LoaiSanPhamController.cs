@@ -32,6 +32,31 @@ namespace BanHangOnline.Controllers
             return Ok(loaisp);
         }
 
+
+        public IHttpActionResult GetLoaiSanPhamById(int id)
+        {
+            LoaiSanPhamViewModel loaisp = null;
+
+            using (var ctx = new BANHANGONLINEEntities5())
+            {
+                loaisp = ctx.LOAISPs.Where(s => s.MALOAI == id)
+                                    .Select(s => new LoaiSanPhamViewModel()
+                                    {
+                                        MALOAI = s.MALOAI,
+                                        TENLOAI = s.TENLOAI,
+                                        DVT = s.DVT
+                                    }).FirstOrDefault<LoaiSanPhamViewModel>();
+            }
+
+            if (loaisp == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(loaisp);
+        }
+
+
         public IHttpActionResult PostNewLoaiSanPham(LoaiSanPhamViewModel loaisp)
         {
             if (!ModelState.IsValid)
@@ -45,6 +70,35 @@ namespace BanHangOnline.Controllers
             }
 
             return Ok();
+
+
+        }
+
+
+        // PUT
+        public IHttpActionResult PutLoaiSanPham(LoaiSanPhamViewModel loaisp)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid data");
+            }
+            using (var ctx = new BANHANGONLINEEntities5())
+            {
+                var existingLoaiSanPham = ctx.LOAISPs.Where(s => s.MALOAI == loaisp.MALOAI).FirstOrDefault<LOAISP>();
+
+                if (existingLoaiSanPham != null)
+                {
+                    ctx.sp_SuaLoaiSanPham(loaisp.TENLOAI, loaisp.DVT, loaisp.MALOAI);
+                    ctx.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+
+            return Ok();
+
         }
     }
 

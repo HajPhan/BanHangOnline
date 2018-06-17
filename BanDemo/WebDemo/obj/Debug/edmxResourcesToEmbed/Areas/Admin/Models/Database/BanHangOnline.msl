@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DoDienTuModelStoreContainer" CdmEntityContainer="DoDienTuEntities1">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="DoDienTuModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="DoDienTuModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NameVN" ColumnName="NameVN" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="DoDienTuModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="DoDienTuModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="DoDienTuModel.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="DoDienTuModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="RequireDate" ColumnName="RequireDate" />
+          <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="DoDienTuModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ProductDate" ColumnName="ProductDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Special" ColumnName="Special" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="DoDienTuModel.Supplier">
+        <MappingFragment StoreEntitySet="Suppliers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DoDienTuModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Account_Login" FunctionName="DoDienTuModel.Store.Account_Login" />
+    <FunctionImportMapping FunctionImportName="insert_Product" FunctionName="DoDienTuModel.Store.insert_Product" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="DoDienTuModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="Sp_Category" FunctionName="DoDienTuModel.Store.Sp_Category">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DoDienTuModel.Sp_Category_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ProductDate" ColumnName="ProductDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Special" ColumnName="Special" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DoDienTuModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_Docphieumuonsinhvien" FunctionName="DoDienTuModel.Store.sp_Docphieumuonsinhvien" />
+    <FunctionImportMapping FunctionImportName="sp_doctk" FunctionName="DoDienTuModel.Store.sp_doctk" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DoDienTuModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="DoDienTuModel.Store.sp_helpdiagramdefinition" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="DoDienTuModel.Store.sp_helpdiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_LOADNHANVIEN" FunctionName="DoDienTuModel.Store.sp_LOADNHANVIEN" />
+    <FunctionImportMapping FunctionImportName="sp_LOADPHIEUMUON" FunctionName="DoDienTuModel.Store.sp_LOADPHIEUMUON" />
+    <FunctionImportMapping FunctionImportName="sp_LOADPHIEUNHACTRA" FunctionName="DoDienTuModel.Store.sp_LOADPHIEUNHACTRA" />
+    <FunctionImportMapping FunctionImportName="sp_LOADSACH" FunctionName="DoDienTuModel.Store.sp_LOADSACH" />
+    <FunctionImportMapping FunctionImportName="sp_LOADSACHMUON" FunctionName="DoDienTuModel.Store.sp_LOADSACHMUON" />
+    <FunctionImportMapping FunctionImportName="sp_LOADTHETHUVIEN" FunctionName="DoDienTuModel.Store.sp_LOADTHETHUVIEN" />
+    <FunctionImportMapping FunctionImportName="sp_LUUNHANVIEN" FunctionName="DoDienTuModel.Store.sp_LUUNHANVIEN" />
+    <FunctionImportMapping FunctionImportName="sp_LUUPHIEUMUON" FunctionName="DoDienTuModel.Store.sp_LUUPHIEUMUON" />
+    <FunctionImportMapping FunctionImportName="sp_LUUPHIEUNHACTRA" FunctionName="DoDienTuModel.Store.sp_LUUPHIEUNHACTRA" />
+    <FunctionImportMapping FunctionImportName="sp_LUUSACH" FunctionName="DoDienTuModel.Store.sp_LUUSACH" />
+    <FunctionImportMapping FunctionImportName="sp_LUUSACHMUON" FunctionName="DoDienTuModel.Store.sp_LUUSACHMUON" />
+    <FunctionImportMapping FunctionImportName="sp_LUUTHETHUVIEN" FunctionName="DoDienTuModel.Store.sp_LUUTHETHUVIEN" />
+    <FunctionImportMapping FunctionImportName="sp_luutk" FunctionName="DoDienTuModel.Store.sp_luutk" />
+    <FunctionImportMapping FunctionImportName="Sp_Product" FunctionName="DoDienTuModel.Store.Sp_Product">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DoDienTuModel.Sp_Product_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ProductDate" ColumnName="ProductDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Special" ColumnName="Special" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DoDienTuModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_SUANHANVIEN" FunctionName="DoDienTuModel.Store.sp_SUANHANVIEN" />
+    <FunctionImportMapping FunctionImportName="sp_SUAPHIEUMUON" FunctionName="DoDienTuModel.Store.sp_SUAPHIEUMUON" />
+    <FunctionImportMapping FunctionImportName="sp_SUAPHIEUNHACTRA" FunctionName="DoDienTuModel.Store.sp_SUAPHIEUNHACTRA" />
+    <FunctionImportMapping FunctionImportName="sp_SUASACH" FunctionName="DoDienTuModel.Store.sp_SUASACH" />
+    <FunctionImportMapping FunctionImportName="sp_SUASACHMUON" FunctionName="DoDienTuModel.Store.sp_SUASACHMUON" />
+    <FunctionImportMapping FunctionImportName="sp_SUATHETHUVIEN" FunctionName="DoDienTuModel.Store.sp_SUATHETHUVIEN" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DoDienTuModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_XOANHANVIEN" FunctionName="DoDienTuModel.Store.sp_XOANHANVIEN" />
+    <FunctionImportMapping FunctionImportName="sp_XOAPHIEUMUON" FunctionName="DoDienTuModel.Store.sp_XOAPHIEUMUON" />
+    <FunctionImportMapping FunctionImportName="sp_Xoaphieumuonsinhvien" FunctionName="DoDienTuModel.Store.sp_Xoaphieumuonsinhvien" />
+    <FunctionImportMapping FunctionImportName="sp_XOAPHIEUNHACTRA" FunctionName="DoDienTuModel.Store.sp_XOAPHIEUNHACTRA" />
+    <FunctionImportMapping FunctionImportName="sp_XOASACH" FunctionName="DoDienTuModel.Store.sp_XOASACH" />
+    <FunctionImportMapping FunctionImportName="sp_XOASACHMUON" FunctionName="DoDienTuModel.Store.sp_XOASACHMUON" />
+    <FunctionImportMapping FunctionImportName="sp_XOATHETHUVIEN" FunctionName="DoDienTuModel.Store.sp_XOATHETHUVIEN" />
+  </EntityContainerMapping>
+</Mapping>

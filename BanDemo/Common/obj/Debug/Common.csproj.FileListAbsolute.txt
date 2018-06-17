@@ -1,0 +1,10 @@
+F:\Kì 2 năm 3\Công nghệ Web\BanDemo\Common\bin\Debug\Common.dll
+F:\Kì 2 năm 3\Công nghệ Web\BanDemo\Common\bin\Debug\Common.pdb
+F:\Kì 2 năm 3\Công nghệ Web\BanDemo\Common\obj\Debug\Common.dll
+F:\Kì 2 năm 3\Công nghệ Web\BanDemo\Common\obj\Debug\Common.pdb
+C:\Users\HajPhan\Downloads\Công nghệ lập trình tích hợp-20180612T115651Z-001\BanDemo\Common\bin\Debug\Common.dll
+C:\Users\HajPhan\Downloads\Công nghệ lập trình tích hợp-20180612T115651Z-001\BanDemo\Common\bin\Debug\Common.pdb
+C:\Users\HajPhan\Downloads\Công nghệ lập trình tích hợp-20180612T115651Z-001\BanDemo\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\HajPhan\Downloads\Công nghệ lập trình tích hợp-20180612T115651Z-001\BanDemo\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\HajPhan\Downloads\Công nghệ lập trình tích hợp-20180612T115651Z-001\BanDemo\Common\obj\Debug\Common.dll
+C:\Users\HajPhan\Downloads\Công nghệ lập trình tích hợp-20180612T115651Z-001\BanDemo\Common\obj\Debug\Common.pdb

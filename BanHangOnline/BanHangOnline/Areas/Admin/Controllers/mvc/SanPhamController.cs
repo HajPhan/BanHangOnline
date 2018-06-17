@@ -94,7 +94,7 @@ namespace BanHangOnline.Areas.Admin.Controllers.mvc
                 var result = postTask.Result;
                 if (result.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("Index","sanpham");
+                    return RedirectToAction("Index", "sanpham");
                 }
 
             }
@@ -102,5 +102,55 @@ namespace BanHangOnline.Areas.Admin.Controllers.mvc
             ModelState.AddModelError(string.Empty, "Server error. Please contact administractor");
             return View(sanpham);
         }
+
+
+        public ActionResult Edit(int id)
+        {
+            SanPhamViewModel sanpham = null;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:53017/api/");
+
+                // HTTP GET
+                var responseTask = client.GetAsync("sanpham?id=" + id.ToString());
+                responseTask.Wait();
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    var readTask = result.Content.ReadAsAsync<SanPhamViewModel>();
+                    readTask.Wait();
+
+                    sanpham = readTask.Result;
+                }
+            }
+
+            return View(sanpham);
+        }
+
+
+
+        [HttpPost]
+        public ActionResult Edit(SanPhamViewModel sanpham)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:53017/api/nhanvien");
+
+                //HTTP POST
+                var putTask = client.PutAsJsonAsync<SanPhamViewModel>("sanpham", sanpham);
+                putTask.Wait();
+
+                var result = putTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+
+            return View(sanpham);
+        }
+
     }
 }

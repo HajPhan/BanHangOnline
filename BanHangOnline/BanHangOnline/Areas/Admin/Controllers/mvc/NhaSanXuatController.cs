@@ -45,6 +45,9 @@ namespace BanHangOnline.Areas.Admin.Controllers.mvc
         }
 
 
+
+
+
         // POST: Nhan Vien
         public ActionResult create()
         {
@@ -66,6 +69,7 @@ namespace BanHangOnline.Areas.Admin.Controllers.mvc
                 if (result.IsSuccessStatusCode)
                 {
                     return RedirectToAction("Index");
+
                 }
 
             }
@@ -83,7 +87,7 @@ namespace BanHangOnline.Areas.Admin.Controllers.mvc
                 client.BaseAddress = new Uri("http://localhost:53017/api/");
 
                 // HTTP GET
-                var respontTask = client.GetAsync("nhasanxuat?id" + id.ToString());
+                var respontTask = client.GetAsync("nhasanxuat?id=" + id.ToString());
                 respontTask.Wait();
 
                 var result = respontTask.Result;

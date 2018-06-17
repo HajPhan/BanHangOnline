@@ -41,6 +41,39 @@ namespace BanHangOnline.Controllers
             return Ok(sanpham);
         }
 
+
+        public IHttpActionResult GetSanPhamById(int id)
+        {
+            SanPhamViewModel sanpham = null;
+
+            using (var ctx = new BANHANGONLINEEntities5())
+            {
+                sanpham = ctx.SANPHAMs.Where(s => s.MASP == id)
+                                      .Select(s => new SanPhamViewModel()
+                                      {
+                                          MASP = s.MASP,
+                                          TENSP = s.TENSP,
+                                          CHITIET = s.CHITIET,
+                                          IMAGES = s.IMAGES,
+                                          TRANGTHAI = s.TRANGTHAI,
+                                          GIA = s.GIA,
+                                          GIAMGIA = s.GIAMGIA,
+                                          SL = s.SL,
+                                          MASX = s.MASX,
+                                          MALOAI = s.MALOAI
+                                      }).FirstOrDefault<SanPhamViewModel>();
+            }
+
+
+            if (sanpham == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(sanpham);
+        }
+
+
         //
         public IHttpActionResult PostNewSanPham(SanPhamViewModel sanpham)
         {
@@ -55,6 +88,34 @@ namespace BanHangOnline.Controllers
             }
 
             return Ok();
+        }
+
+
+        // PUT:
+        // PUT
+        public IHttpActionResult PutSaanPham(SanPhamViewModel sanpham)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid data");
+            }
+            using (var ctx = new BANHANGONLINEEntities5())
+            {
+                var existingSanPham = ctx.SANPHAMs.Where(s => s.MASP == sanpham.MASP).FirstOrDefault<SANPHAM>();
+
+                if (existingSanPham != null)
+                {
+                    ctx.sp_SuaSanPham(sanpham.TENSP, sanpham.GIA, sanpham.CHITIET, sanpham.IMAGES, sanpham.TRANGTHAI, sanpham.GIAMGIA, sanpham.SL, sanpham.MALOAI, sanpham.MASP);
+                    ctx.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+
+            return Ok();
+
         }
     }
 }

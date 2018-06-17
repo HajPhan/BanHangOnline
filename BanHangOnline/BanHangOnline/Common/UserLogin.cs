@@ -9,5 +9,6 @@ namespace BanHangOnline.Common
     {
         public string userName { get; set; }
         public string passWord { get; set; }
+        public string fullname { get; set; }
     }
 }

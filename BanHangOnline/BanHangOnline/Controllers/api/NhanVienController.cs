@@ -42,6 +42,40 @@ namespace BanHangOnline.Controllers
             return Ok(nhanvien);
         }
 
+
+        public IHttpActionResult GetNhanVienById(int id)
+        {
+            NhanVienViewModel nhanvien = null;
+
+            using (var ctx = new BANHANGONLINEEntities5())
+            {
+                nhanvien = ctx.NHANVIENs.Where(s => s.MANV == id)
+                              .Select(s => new NhanVienViewModel()
+                              {
+                                  MANV = s.MANV,
+                                  HOTEN = s.HOTEN,
+                                  NGAYSINH = s.NGAYSINH,
+                                  GIOITINH = s.GIOITINH,
+                                  DIENTHOAI = s.DIENTHOAI,
+                                  MAIL = s.MAIL,
+                                  DIACHI = s.DIACHI,
+                                  NGAYLAM = s.NGAYLAM,
+                                  LUONG = s.LUONG,
+                                  USERNAMES = s.USERNAMES,
+                                  PASSWORDS = s.PASSWORDS,
+                                  TRANGTHAI = s.TRANGTHAI
+                              }).FirstOrDefault<NhanVienViewModel>();
+            }
+
+            if (nhanvien == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(nhanvien);
+        }
+
+
         //POST
         public IHttpActionResult PostNewNhanVien(NhanVienViewModel nhanvien)
         {
